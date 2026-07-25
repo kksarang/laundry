@@ -9,9 +9,18 @@ Premium marketing website for **Cleanso**, a white-label laundry operations plat
 
 ## Live site
 
-After the first successful GitHub Actions deploy:
-
 **https://kksarang.github.io/laundry/**
+
+## Fix if the site is blank / not loading
+
+GitHub must serve the built `gh-pages` branch (not source on `main`).
+
+1. Open [Repo Settings → Pages](https://github.com/kksarang/laundry/settings/pages)
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**
+3. Branch: **`gh-pages`** / folder: **`/` (root)**
+4. Save, wait 1–2 minutes, then hard-refresh the live URL
+
+Pushing to `main` rebuilds and updates `gh-pages` automatically via Actions.
 
 ## Stack
 
@@ -33,9 +42,3 @@ npm run dev
 npm run build
 npm run preview
 ```
-
-## Deploy
-
-Pushing to `main` triggers GitHub Pages deploy via `.github/workflows/deploy.yml`.
-
-In the GitHub repo settings, set **Pages → Source** to **GitHub Actions** (once).
