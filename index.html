@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Cleanso — laundry business software. White-label Customer App, Delivery App, and CMS. Yearly licenses from ₹5,000."
     />
-    <meta property="og:title" content="Cleanso — Laundry Business Software" />
+    <meta property="og:title" content="Cleanso — Laundry Ops Platform" />
     <meta
       property="og:description"
       content="Digitize your laundry brand with Customer, Delivery, and CMS apps under your own branding."
@@ -19,10 +22,47 @@
       href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap"
       rel="stylesheet"
     />
-    <title>Cleanso — Laundry Business Software</title>
+    <title>Cleanso — Laundry Ops Platform</title>
+    <style>
+      html,
+      body,
+      #root {
+        margin: 0;
+        min-height: 100%;
+      }
+      #boot-fallback {
+        display: none;
+        font-family: system-ui, sans-serif;
+        max-width: 34rem;
+        margin: 4rem auto;
+        padding: 1.5rem;
+        color: #121816;
+        line-height: 1.5;
+      }
+      #boot-fallback a {
+        color: #0f6e6b;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="boot-fallback">
+      <h1>Cleanso didn’t finish loading</h1>
+      <p>
+        Hard refresh this page with <strong>Cmd + Shift + R</strong> (Mac) or
+        <strong>Ctrl + Shift + R</strong> (Windows), or open it in a private window.
+      </p>
+      <p><a href="./">Retry</a> · <a href="https://github.com/kksarang/laundry">GitHub repo</a></p>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      setTimeout(function () {
+        var root = document.getElementById('root')
+        var fallback = document.getElementById('boot-fallback')
+        if (root && fallback && root.childElementCount === 0) {
+          fallback.style.display = 'block'
+        }
+      }, 2500)
+    </script>
   </body>
 </html>
