@@ -1,51 +1,53 @@
-import { Globe, Mail, MapPin, Phone, Share2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Logo } from '@/components/layout/Logo'
-import { Button } from '@/components/ui/Button'
 
-const footerLinks = [
-  { to: '/products', label: 'Products' },
-  { to: '/pricing', label: 'Pricing' },
+const productLinks = [
+  { to: '/products', label: 'Platform overview' },
+  { to: '/products#customer', label: 'Customer App' },
+  { to: '/products#delivery', label: 'Delivery App' },
+  { to: '/products#cms', label: 'CMS + POS' },
+  { to: '/pricing', label: 'Licensing' },
+]
+
+const companyLinks = [
   { to: '/about', label: 'About' },
   { to: '/blog', label: 'Blog' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]
 
+const resourceLinks = [
+  { to: '/pricing', label: 'Compare plans' },
+  { to: '/contact?demo=1', label: 'Book a demo' },
+  { to: '/faq', label: 'Onboarding help' },
+  { to: '/blog', label: 'Product notes' },
+]
+
 export function Footer() {
   return (
-    <footer className="border-t border-theme bg-surface">
-      <div className="container-page section-pad grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
-        <div className="space-y-4">
-          <Logo />
-          <p className="max-w-sm text-sm leading-relaxed text-ink-muted">
-            Premium laundry operations software — white-label Customer App, Delivery App, and CMS + POS connected as one
-            platform.
+    <footer className="mt-10 border-t border-theme bg-surface">
+      <div className="container-page grid gap-10 py-12 md:grid-cols-[1.2fr_1fr_1fr_1fr] md:py-14">
+        <div className="space-y-3">
+          <Logo compact />
+          <p className="max-w-xs text-sm leading-relaxed text-ink-muted">
+            Premium laundry operating system — bookings, riders, POS, and HQ control in one stack.
           </p>
-          <div className="flex gap-3">
-            {[
-              { Icon: Share2, label: 'Share' },
-              { Icon: Globe, label: 'Website' },
-              { Icon: Mail, label: 'Email' },
-            ].map(({ Icon, label }) => (
-              <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-theme text-ink-muted hover:border-[var(--primary)] hover:text-primary"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+          <div className="space-y-1 text-sm text-ink-muted">
+            <a href="mailto:hello@cleanso.in" className="block hover:text-primary">
+              hello@cleanso.in
+            </a>
+            <a href="tel:+919876543210" className="block hover:text-primary">
+              +91 98765 43210
+            </a>
           </div>
         </div>
 
         <div>
-          <p className="mb-4 font-display text-lg font-semibold text-ink">Explore</p>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-subtle">Product</p>
           <ul className="space-y-2">
-            {footerLinks.map((link) => (
-              <li key={link.to}>
-                <Link to={link.to} className="text-sm text-ink-muted hover:text-primary">
+            {productLinks.map((link) => (
+              <li key={link.to + link.label}>
+                <Link to={link.to} className="text-sm text-ink-muted transition-colors hover:text-primary">
                   {link.label}
                 </Link>
               </li>
@@ -53,40 +55,48 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="space-y-4">
-          <p className="font-display text-lg font-semibold text-ink">Product updates</p>
-          <p className="text-sm text-ink-muted">Release notes and laundry-tech tips — no spam.</p>
-          <form
-            className="flex flex-col gap-2 sm:flex-row"
-            onSubmit={(e) => {
-              e.preventDefault()
-            }}
-          >
-            <input
-              type="email"
-              required
-              placeholder="Email address"
-              className="w-full rounded-xl border border-theme bg-page px-4 py-2.5 text-sm outline-none focus:border-[var(--primary)]"
-            />
-            <Button type="submit" size="sm" className="!rounded-xl">
-              Subscribe
-            </Button>
-          </form>
-          <div className="space-y-2 pt-2 text-sm text-ink-muted">
-            <p className="inline-flex items-center gap-2">
-              <Phone className="h-4 w-4 text-primary" /> +91 98765 43210
-            </p>
-            <p className="inline-flex items-center gap-2">
-              <Mail className="h-4 w-4 text-primary" /> hello@cleanso.in
-            </p>
-            <p className="inline-flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-primary" /> India · Remote onboarding
-            </p>
-          </div>
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-subtle">Company</p>
+          <ul className="space-y-2">
+            {companyLinks.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="text-sm text-ink-muted transition-colors hover:text-primary">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-subtle">Resources</p>
+          <ul className="space-y-2">
+            {resourceLinks.map((link) => (
+              <li key={link.to + link.label}>
+                <Link to={link.to} className="text-sm text-ink-muted transition-colors hover:text-primary">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="border-t border-theme py-4 text-center text-xs text-ink-subtle">
-        © {new Date().getFullYear()} Cleanso Software. All rights reserved.
+
+      <div className="border-t border-theme">
+        <div className="container-page flex flex-col gap-2 py-4 text-xs text-ink-subtle sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Cleanso Software</p>
+          <div className="flex gap-4">
+            <Link to="/faq" className="hover:text-primary">
+              Privacy
+            </Link>
+            <Link to="/faq" className="hover:text-primary">
+              Terms
+            </Link>
+            <Link to="/contact" className="hover:text-primary">
+              Support
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )
