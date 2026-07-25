@@ -1,0 +1,221 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Clash Display', 'Satoshi', system-ui, sans-serif;
+  --font-body: 'Satoshi', system-ui, sans-serif;
+
+  --color-primary: #0f6e6b;
+  --color-primary-dark: #0a524f;
+  --color-primary-soft: #e8f7f5;
+  --color-accent: #7ed8d0;
+  --color-accent-soft: #c8f0eb;
+  --color-bg: #f7f8f6;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef1ee;
+  --color-ink: #121816;
+  --color-ink-muted: #5a635f;
+  --color-ink-subtle: #87918c;
+  --color-border: #dfe5e1;
+  --color-success: #1f8a70;
+  --color-warning: #c9842a;
+  --color-danger: #c23b3b;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+}
+
+:root {
+  color-scheme: light;
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+  --surface-muted: var(--color-surface-muted);
+  --ink: var(--color-ink);
+  --ink-muted: var(--color-ink-muted);
+  --ink-subtle: var(--color-ink-subtle);
+  --border: var(--color-border);
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+  --primary-soft: var(--color-primary-soft);
+  --accent: var(--color-accent);
+  --accent-soft: var(--color-accent-soft);
+  --glass: rgba(255, 255, 255, 0.72);
+  --shadow: rgba(12, 50, 46, 0.1);
+  --grid-line: rgba(15, 110, 107, 0.06);
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #0b0f0e;
+  --surface: #131918;
+  --surface-muted: #1a2220;
+  --ink: #f1f5f3;
+  --ink-muted: #a4b0ab;
+  --ink-subtle: #6d7873;
+  --border: #26302d;
+  --primary: #3db8b2;
+  --primary-dark: #2a9e98;
+  --primary-soft: #123534;
+  --accent: #7ed8d0;
+  --accent-soft: #1a4543;
+  --glass: rgba(19, 25, 24, 0.78);
+  --shadow: rgba(0, 0, 0, 0.4);
+  --grid-line: rgba(61, 184, 178, 0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 28%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .bg-page {
+    background-color: var(--bg);
+  }
+
+  .bg-surface {
+    background-color: var(--surface);
+  }
+
+  .bg-surface-muted {
+    background-color: var(--surface-muted);
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
+  .bg-primary-soft {
+    background-color: var(--primary-soft);
+  }
+
+  .text-ink {
+    color: var(--ink);
+  }
+
+  .text-ink-muted {
+    color: var(--ink-muted);
+  }
+
+  .text-ink-subtle {
+    color: var(--ink-subtle);
+  }
+
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .border-theme {
+    border-color: var(--border);
+  }
+
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 24px 60px var(--shadow);
+  }
+
+  .shadow-glow {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 18%, transparent),
+      0 28px 70px var(--shadow);
+  }
+
+  .container-page {
+    width: min(100% - 2.5rem, 74rem);
+    margin-inline: auto;
+  }
+
+  .section-pad {
+    padding-block: clamp(4rem, 9vw, 7.5rem);
+  }
+
+  .hero-atmosphere {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 55%),
+      radial-gradient(ellipse 55% 50% at 90% 10%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 50%),
+      radial-gradient(ellipse 40% 35% at 50% 100%, color-mix(in oklab, var(--primary-soft) 80%, transparent), transparent 60%),
+      linear-gradient(180deg, color-mix(in oklab, var(--primary-soft) 40%, var(--bg)), var(--bg) 75%);
+  }
+
+  .dark .hero-atmosphere {
+    background:
+      radial-gradient(ellipse 70% 55% at 12% 0%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 55%),
+      radial-gradient(ellipse 50% 45% at 88% 8%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 50%),
+      linear-gradient(180deg, #0e1514, var(--bg) 75%);
+  }
+
+  .grid-fade {
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black, transparent);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, color-mix(in oklab, var(--accent) 70%, var(--primary)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .premium-panel {
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--surface) 92%, white), var(--surface));
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+
+  .dark .premium-panel {
+    background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 90%, #fff), var(--surface));
+  }
+}
