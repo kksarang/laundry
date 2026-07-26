@@ -12,7 +12,7 @@ const orderedPlans = [...appPlans].sort((a, b) => a.price - b.price)
 
 export function PricingCards() {
   return (
-    <div className="grid gap-5 lg:grid-cols-3 lg:gap-6">
+    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
       {orderedPlans.map((plan, index) => (
         <motion.article
           key={plan.id}
@@ -20,14 +20,14 @@ export function PricingCards() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ delay: index * 0.07, ease }}
-          className={`relative flex flex-col rounded-[1.5rem] border bg-surface p-6 shadow-[0_12px_40px_rgba(12,50,46,0.06)] md:p-8 ${
+          className={`relative flex flex-col rounded-[1.5rem] border bg-surface p-5 shadow-[0_12px_40px_rgba(12,50,46,0.06)] sm:p-6 md:p-8 ${
             plan.popular
-              ? 'border-[color-mix(in_oklab,var(--primary)_40%,var(--border))] ring-1 ring-[color-mix(in_oklab,var(--primary)_18%,transparent)]'
+              ? 'border-[color-mix(in_oklab,var(--primary)_40%,var(--border))] ring-1 ring-[color-mix(in_oklab,var(--primary)_18%,transparent)] md:col-span-2 xl:col-span-1'
               : 'border-theme'
           }`}
         >
           {plan.popular && (
-            <span className="absolute right-5 top-5 rounded-full bg-[var(--primary-soft)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="absolute right-4 top-4 rounded-full bg-[var(--primary-soft)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary sm:right-5 sm:top-5">
               Most chosen
             </span>
           )}
@@ -55,7 +55,7 @@ export function PricingCards() {
           <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
             Everything included ({plan.fullFeatures.length})
           </p>
-          <ul className="mt-3 max-h-[22rem] flex-1 space-y-2.5 overflow-y-auto pr-1">
+          <ul className="mt-3 max-h-none flex-1 space-y-2.5 pr-1 md:max-h-[22rem] md:overflow-y-auto">
             {plan.fullFeatures.map((feature) => (
               <li key={feature} className="flex items-start gap-2.5 text-sm text-ink">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.25} />

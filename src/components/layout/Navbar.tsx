@@ -53,7 +53,7 @@ export function Navbar() {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-1.5 text-[13px] font-medium transition-all ${
+                `rounded-lg px-2 py-1.5 text-[13px] font-medium transition-all xl:px-3 ${
                   isActive ? 'bg-surface text-ink shadow-sm' : 'text-ink-muted hover:text-ink'
                 }`
               }

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Check, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { appBundle, appPlans, planComparison, type ComparisonCell } from '@/data/appPlans'
@@ -6,11 +6,13 @@ import { formatINR } from '@/lib/format'
 import { Button } from '@/components/ui/Button'
 
 const columns = [
-  { id: 'cms' as const, name: 'CMS + POS', price: appPlans.find((p) => p.id === 'cms')!.price },
-  { id: 'delivery' as const, name: 'Delivery', price: appPlans.find((p) => p.id === 'delivery')!.price },
-  { id: 'customer' as const, name: 'Customer', price: appPlans.find((p) => p.id === 'customer')!.price },
-  { id: 'bundle' as const, name: 'Full bundle', price: appBundle.price },
+  { id: 'cms' as const, name: 'CMS + POS', short: 'CMS', price: appPlans.find((p) => p.id === 'cms')!.price },
+  { id: 'delivery' as const, name: 'Delivery', short: 'Delivery', price: appPlans.find((p) => p.id === 'delivery')!.price },
+  { id: 'customer' as const, name: 'Customer', short: 'Customer', price: appPlans.find((p) => p.id === 'customer')!.price },
+  { id: 'bundle' as const, name: 'Full bundle', short: 'Bundle', price: appBundle.price },
 ]
+
+type ColumnId = (typeof columns)[number]['id']
 
 function Cell({ value }: { value: ComparisonCell }) {
   if (value === true) {
@@ -36,6 +38,24 @@ function Cell({ value }: { value: ComparisonCell }) {
   return <span className="text-xs font-semibold text-ink-muted">{value}</span>
 }
 
+function CellInline({ value }: { value: ComparisonCell }) {
+  if (value === true) {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#1f8a70]">
+        <Check className="h-4 w-4 shrink-0" strokeWidth={2.5} /> Included
+      </span>
+    )
+  }
+  if (value === false) {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#c23b3b]/80">
+        <X className="h-4 w-4 shrink-0" strokeWidth={2.5} /> Not included
+      </span>
+    )
+  }
+  return <span className="text-sm font-semibold text-ink-muted">{value}</span>
+}
+
 /** Group rows by category for scanability */
 function groupedRows() {
   const groups: { category: string; rows: typeof planComparison }[] = []
@@ -52,12 +72,14 @@ function groupedRows() {
 
 export function PlanCompareTable() {
   const groups = groupedRows()
+  const [activePlan, setActivePlan] = useState<ColumnId>('customer')
+  const activeCol = columns.find((c) => c.id === activePlan)!
 
   return (
     <div className="overflow-hidden rounded-[1.5rem] border border-theme bg-surface shadow-[0_12px_40px_rgba(12,50,46,0.05)]">
-      <div className="border-b border-theme px-5 py-6 md:px-8 md:py-8">
+      <div className="border-b border-theme px-4 py-5 sm:px-5 sm:py-6 md:px-8 md:py-8">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">Full feature list</p>
-        <h2 className="mt-2 font-display text-2xl font-semibold text-ink md:text-4xl">Compare all plans</h2>
+        <h2 className="mt-2 font-display text-xl font-semibold text-ink sm:text-2xl md:text-4xl">Compare all plans</h2>
         <p className="mt-2 max-w-2xl text-sm text-ink-muted md:text-base">
           Green check = included · Red X = not in that license · Bundle gets everything connected.
         </p>
@@ -77,8 +99,66 @@ export function PlanCompareTable() {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-[860px] w-full text-left text-sm">
+      {/* Mobile / tablet: plan tabs + stacked features */}
+      <div className="lg:hidden">
+        <div className="flex gap-2 overflow-x-auto border-b border-theme px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {columns.map((col) => {
+            const selected = col.id === activePlan
+            return (
+              <button
+                key={col.id}
+                type="button"
+                onClick={() => setActivePlan(col.id)}
+                className={`shrink-0 rounded-xl px-3.5 py-2.5 text-left transition-colors ${
+                  selected
+                    ? 'bg-[var(--primary-soft)] text-primary ring-1 ring-[color-mix(in_oklab,var(--primary)_28%,transparent)]'
+                    : 'bg-[var(--surface-muted)] text-ink-muted hover:text-ink'
+                }`}
+              >
+                <p className="text-sm font-semibold">{col.short}</p>
+                <p className="mt-0.5 text-[11px] opacity-80">{formatINR(col.price)}/yr</p>
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="space-y-6 px-4 py-5 sm:px-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-display text-lg font-semibold text-ink">{activeCol.name}</p>
+              <p className="text-sm text-ink-muted">{formatINR(activeCol.price)} / year</p>
+            </div>
+            <Button
+              to={activeCol.id === 'bundle' ? '/contact?plan=bundle' : `/contact?plan=${activeCol.id}`}
+              size="sm"
+              variant={activeCol.id === 'customer' || activeCol.id === 'bundle' ? 'dark' : 'secondary'}
+              className="w-full sm:w-auto"
+            >
+              Get started
+            </Button>
+          </div>
+
+          {groups.map((group) => (
+            <div key={group.category}>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary">{group.category}</p>
+              <ul className="divide-y divide-[var(--border)] rounded-2xl border border-theme">
+                {group.rows.map((row) => (
+                  <li key={row.feature} className="flex items-start justify-between gap-3 px-3.5 py-3">
+                    <span className="min-w-0 text-sm font-medium text-ink">{row.feature}</span>
+                    <span className="shrink-0">
+                      <CellInline value={row[activePlan]} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop table */}
+      <div className="hidden overflow-x-auto lg:block">
+        <table className="w-full text-left text-sm">
           <thead>
             <tr className="border-b border-theme bg-[var(--surface-muted)]/50">
               <th className="sticky left-0 z-10 bg-[color-mix(in_oklab,var(--surface-muted)_50%,var(--surface))] px-5 py-5 font-medium text-ink-muted md:px-8">
@@ -131,7 +211,7 @@ export function PlanCompareTable() {
         </table>
       </div>
 
-      <div className="border-t border-theme px-5 py-4 text-center text-sm text-ink-muted md:px-8">
+      <div className="border-t border-theme px-4 py-4 text-center text-sm text-ink-muted sm:px-5 md:px-8">
         Still unsure?{' '}
         <Link to="/contact?demo=1" className="font-semibold text-primary">
           Book a demo

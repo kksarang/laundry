@@ -82,7 +82,7 @@ export function Contact() {
         <div className="container-page grid gap-10 lg:grid-cols-[1fr_0.9fr]">
           <form
             onSubmit={onSubmit}
-            className="space-y-4 rounded-[var(--radius-xl)] border border-theme bg-surface p-6 md:p-8"
+            className="space-y-4 rounded-[var(--radius-xl)] border border-theme bg-surface p-4 sm:p-6 md:p-8"
           >
             {sent ? (
               <div className="space-y-3 py-10 text-center">

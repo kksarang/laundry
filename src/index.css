@@ -71,6 +71,7 @@ html.dark {
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
@@ -81,6 +82,7 @@ html.dark {
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   h1,
@@ -170,12 +172,12 @@ html.dark {
   }
 
   .container-page {
-    width: min(100% - 2.5rem, 74rem);
+    width: min(100% - clamp(1.5rem, 5vw, 2.5rem), 74rem);
     margin-inline: auto;
   }
 
   .section-pad {
-    padding-block: clamp(4rem, 9vw, 7.5rem);
+    padding-block: clamp(3rem, 8vw, 7.5rem);
   }
 
   .hero-atmosphere {

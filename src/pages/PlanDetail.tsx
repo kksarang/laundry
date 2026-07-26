@@ -43,29 +43,29 @@ export function PlanDetail() {
 
               <div className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{plan.tagline}</p>
-                <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+                <h1 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
                   {plan.name}
                 </h1>
-                <p className="max-w-xl text-lg leading-relaxed text-ink-muted">{plan.longDescription}</p>
+                <p className="max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">{plan.longDescription}</p>
               </div>
 
               <div className="flex flex-wrap items-end gap-3 border-t border-theme pt-6">
                 {'originalPrice' in plan && (
-                  <span className="pb-1 text-lg text-ink-subtle line-through">
+                  <span className="pb-1 text-base text-ink-subtle line-through sm:text-lg">
                     {formatINR(plan.originalPrice)}
                   </span>
                 )}
-                <p className="font-display text-5xl font-semibold tracking-tight text-ink">
+                <p className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
                   {formatINR(plan.price)}
                 </p>
                 <p className="pb-2 text-ink-muted">per year</p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <Button to={`/contact?plan=${planId}`} size="lg">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button to={`/contact?plan=${planId}`} size="lg" className="w-full sm:w-auto">
                   {plan.cta} <ArrowRight className="h-4 w-4" />
                 </Button>
-                <Button to="/contact?demo=1" variant="secondary" size="lg">
+                <Button to="/contact?demo=1" variant="secondary" size="lg" className="w-full sm:w-auto">
                   Book a demo
                 </Button>
               </div>
@@ -86,7 +86,7 @@ export function PlanDetail() {
               <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-ink-subtle">
                 Full list — what’s included ({plan.fullFeatures.length})
               </p>
-              <ul className="mt-4 max-h-[28rem] space-y-3 overflow-y-auto pr-1">
+              <ul className="mt-4 max-h-none space-y-3 pr-1 lg:max-h-[28rem] lg:overflow-y-auto">
                 {plan.fullFeatures.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5 text-sm text-ink-muted">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -109,7 +109,7 @@ export function PlanDetail() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {plan.detailFeatures.map((block, index) => (
               <article key={block.title} className="rounded-[1.35rem] border border-theme bg-surface p-6 md:p-7">
                 <p className="font-display text-sm font-semibold tracking-[0.14em] text-primary">
@@ -127,7 +127,7 @@ export function PlanDetail() {
       <section className="border-t border-theme bg-surface section-pad">
         <div className="container-page space-y-8">
           <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">Explore other plans</h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {others.slice(0, 3).map((other) => (
               <Link
                 key={other.id}

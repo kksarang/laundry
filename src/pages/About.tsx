@@ -145,7 +145,7 @@ export function About() {
             </p>
           </div>
 
-          <div className="grid gap-10 border-t border-theme pt-10 md:grid-cols-3 md:gap-8">
+          <div className="grid gap-10 border-t border-theme pt-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {scalePillars.map((pillar, index) => (
               <div key={pillar.title}>
                 <p className="font-display text-sm font-semibold tracking-[0.16em] text-primary">0{index + 1}</p>
@@ -164,7 +164,7 @@ export function About() {
             <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">From first demo to go-live</h2>
           </div>
 
-          <ol className="grid gap-10 border-t border-theme pt-10 md:grid-cols-4 md:gap-8">
+          <ol className="grid gap-10 border-t border-theme pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {launchSteps.map((step) => (
               <li key={step.step}>
                 <p className="font-display text-sm font-semibold tracking-[0.16em] text-primary">{step.step}</p>

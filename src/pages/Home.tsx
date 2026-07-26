@@ -41,7 +41,7 @@ export function Home() {
       {/* Classic hero — CMS mock + three app cards */}
       <section className="hero-atmosphere relative overflow-hidden">
         <div className="grid-fade pointer-events-none absolute inset-0 opacity-70" />
-        <div className="container-page relative grid items-center gap-12 pb-20 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28 lg:pt-32">
+        <div className="container-page relative grid items-center gap-10 pb-16 pt-28 sm:gap-12 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28 lg:pt-32">
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
@@ -54,11 +54,11 @@ export function Home() {
                 Laundry software platform
               </div>
 
-              <p className="font-display text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
+              <p className="font-display text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 <span className="text-gradient">Cleanso</span>
               </p>
 
-              <h1 className="max-w-xl font-display text-3xl font-semibold text-ink sm:text-4xl md:text-[2.9rem] md:leading-[1.1]">
+              <h1 className="max-w-xl font-display text-[1.65rem] font-semibold leading-tight text-ink sm:text-4xl md:text-[2.9rem] md:leading-[1.1]">
                 One premium platform.
                 <br />
                 Three connected apps.
@@ -74,12 +74,12 @@ export function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             >
-              <Button to="/contact?demo=1" size="lg" className="!rounded-xl">
+              <Button to="/contact?demo=1" size="lg" className="w-full !rounded-xl sm:w-auto">
                 Request demo <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button to="/pricing" variant="secondary" size="lg" className="!rounded-xl">
+              <Button to="/pricing" variant="secondary" size="lg" className="w-full !rounded-xl sm:w-auto">
                 View licenses
               </Button>
             </motion.div>
@@ -112,9 +112,9 @@ export function Home() {
       <section className="border-y border-theme bg-surface">
         <div className="container-page grid grid-cols-2 gap-px bg-[var(--border)] md:grid-cols-4">
           {platformStats.map((stat) => (
-            <div key={stat.label} className="bg-surface px-5 py-7 text-center md:py-8">
-              <p className="font-display text-3xl font-semibold text-primary md:text-4xl">{stat.value}</p>
-              <p className="mt-1 text-sm text-ink-muted">{stat.label}</p>
+            <div key={stat.label} className="bg-surface px-3 py-6 text-center sm:px-5 sm:py-7 md:py-8">
+              <p className="font-display text-2xl font-semibold text-primary sm:text-3xl md:text-4xl">{stat.value}</p>
+              <p className="mt-1 text-xs text-ink-muted sm:text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -181,7 +181,7 @@ export function Home() {
               Built for every laundry business type
             </h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {businessSegments.map((segment, index) => (
               <Link
                 key={segment.id}
@@ -301,7 +301,7 @@ export function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">Onboarding</p>
             <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">From license to live</h2>
           </div>
-          <ol className="grid gap-10 md:grid-cols-4 md:gap-8">
+          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {launchSteps.map((step, index) => (
               <motion.li
                 key={step.step}

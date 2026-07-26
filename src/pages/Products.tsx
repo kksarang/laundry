@@ -33,7 +33,7 @@ export function Products() {
               className="scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-theme bg-surface shadow-soft"
             >
               <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="space-y-5 p-6 md:p-8">
+                <div className="space-y-5 p-4 sm:p-6 md:p-8">
                   <div className="flex flex-wrap items-center gap-3">
                     <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)] text-white">
                       <ProductIcon name={product.icon} className="h-7 w-7" />
@@ -61,7 +61,7 @@ export function Products() {
                   </ul>
                 </div>
 
-                <div className="flex flex-col justify-between border-t border-theme bg-[var(--surface-muted)]/60 p-6 md:p-8 lg:border-l lg:border-t-0">
+                <div className="flex flex-col justify-between border-t border-theme bg-[var(--surface-muted)]/60 p-4 sm:p-6 md:p-8 lg:border-l lg:border-t-0">
                   <div>
                     <p className="text-sm text-ink-muted">Modules included</p>
                     <div className="mt-3 flex flex-wrap gap-2">

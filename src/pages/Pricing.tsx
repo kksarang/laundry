@@ -20,12 +20,12 @@ export function Pricing() {
       />
 
       <section className="border-b border-theme">
-        <div className="container-page space-y-10 pb-16 pt-28 md:space-y-12 md:pb-20 md:pt-32">
+        <div className="container-page space-y-8 pb-14 pt-28 sm:space-y-10 sm:pb-16 md:space-y-12 md:pb-20 md:pt-32">
           <div className="max-w-xl space-y-3">
-            <h1 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+            <h1 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
               Pricing
             </h1>
-            <p className="text-ink-muted md:text-lg">
+            <p className="text-sm text-ink-muted sm:text-base md:text-lg">
               Flat yearly licenses — full feature list on every plan.
             </p>
           </div>

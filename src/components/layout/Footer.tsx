@@ -34,8 +34,8 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-theme bg-surface">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:py-16">
-        <div className="space-y-4">
+      <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:py-16">
+        <div className="space-y-4 sm:col-span-2 lg:col-span-1">
           <Logo compact />
           <p className="max-w-xs text-sm leading-relaxed text-ink-muted">
             White-label laundry operating system — Customer App, Delivery App, and CMS + POS with flat yearly

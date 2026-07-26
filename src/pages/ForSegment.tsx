@@ -59,12 +59,17 @@ export function ForSegment() {
             </p>
             <ul className="mt-6 divide-y divide-[var(--border)] border-y border-theme">
               {plans.map((plan) => (
-                <li key={plan.id} className="flex items-baseline justify-between gap-4 py-5">
-                  <div>
+                <li
+                  key={plan.id}
+                  className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                >
+                  <div className="min-w-0">
                     <p className="font-display text-xl font-semibold text-ink">{plan.name}</p>
                     <p className="mt-1 text-sm text-ink-muted">{plan.tagline}</p>
                   </div>
-                  <p className="font-display text-lg font-semibold text-primary">{formatINR(plan.price)}/yr</p>
+                  <p className="shrink-0 font-display text-lg font-semibold text-primary">
+                    {formatINR(plan.price)}/yr
+                  </p>
                 </li>
               ))}
             </ul>
