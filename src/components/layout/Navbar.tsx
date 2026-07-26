@@ -45,7 +45,7 @@ export function Navbar() {
         <Logo compact />
 
         <nav
-          className="hidden items-center rounded-xl border border-theme/70 bg-[var(--surface-muted)]/55 p-1 lg:flex"
+          className="hidden min-w-0 items-center rounded-xl border border-theme/70 bg-[var(--surface-muted)]/55 p-1 xl:flex"
           aria-label="Primary"
         >
           {links.map((link) => (
@@ -82,7 +82,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-ink transition-colors hover:bg-[var(--surface-muted)] lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-ink transition-colors hover:bg-[var(--surface-muted)] xl:hidden"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
           >
@@ -94,7 +94,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-[70] lg:hidden"
+            className="fixed inset-0 z-[70] xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

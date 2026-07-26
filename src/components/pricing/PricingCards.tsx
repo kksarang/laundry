@@ -12,7 +12,7 @@ const orderedPlans = [...appPlans].sort((a, b) => a.price - b.price)
 
 export function PricingCards() {
   return (
-    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+    <div className="grid w-full max-w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {orderedPlans.map((plan, index) => (
         <motion.article
           key={plan.id}
@@ -20,9 +20,9 @@ export function PricingCards() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ delay: index * 0.07, ease }}
-          className={`relative flex flex-col rounded-[1.5rem] border bg-surface p-5 shadow-[0_12px_40px_rgba(12,50,46,0.06)] sm:p-6 md:p-8 ${
+          className={`relative flex min-w-0 flex-col rounded-[1.5rem] border bg-surface p-5 shadow-[0_12px_40px_rgba(12,50,46,0.06)] sm:p-6 md:p-7 ${
             plan.popular
-              ? 'border-[color-mix(in_oklab,var(--primary)_40%,var(--border))] ring-1 ring-[color-mix(in_oklab,var(--primary)_18%,transparent)] md:col-span-2 xl:col-span-1'
+              ? 'border-[color-mix(in_oklab,var(--primary)_40%,var(--border))] ring-1 ring-[color-mix(in_oklab,var(--primary)_18%,transparent)]'
               : 'border-theme'
           }`}
         >

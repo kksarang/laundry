@@ -10,7 +10,7 @@ interface PageShellProps {
 
 export function PageShell({ children }: PageShellProps) {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-page text-ink">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-page text-ink">
       <JsonLd />
       <Navbar />
       <motion.main
@@ -18,7 +18,7 @@ export function PageShell({ children }: PageShellProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35 }}
-        className="relative"
+        className="relative w-full min-w-0 max-w-full"
       >
         {children}
       </motion.main>

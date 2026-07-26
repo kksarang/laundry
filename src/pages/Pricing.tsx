@@ -20,7 +20,7 @@ export function Pricing() {
       />
 
       <section className="border-b border-theme">
-        <div className="container-page space-y-8 pb-14 pt-28 sm:space-y-10 sm:pb-16 md:space-y-12 md:pb-20 md:pt-32">
+        <div className="container-page w-full max-w-full space-y-8 pb-14 pt-28 sm:space-y-10 sm:pb-16 md:space-y-12 md:pb-20 md:pt-32">
           <div className="max-w-xl space-y-3">
             <h1 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
               Pricing
@@ -31,7 +31,7 @@ export function Pricing() {
           </div>
 
           {/* Quick pick */}
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {chooseGuide.map((item) => (
               <Link
                 key={item.href}
@@ -57,18 +57,18 @@ export function Pricing() {
             viewport={{ once: true }}
             className="overflow-hidden rounded-[1.5rem] border border-theme bg-[var(--ink)] text-white"
           >
-            <div className="grid gap-8 px-6 py-8 md:grid-cols-[1fr_1fr] md:px-10 md:py-10">
-              <div className="space-y-4">
+            <div className="grid gap-8 px-4 py-7 sm:px-6 sm:py-8 md:grid-cols-2 md:px-10 md:py-10">
+              <div className="min-w-0 space-y-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">Best value</p>
-                <h2 className="font-display text-2xl font-semibold md:text-3xl">{appBundle.name}</h2>
+                <h2 className="font-display text-xl font-semibold sm:text-2xl md:text-3xl">{appBundle.name}</h2>
                 <p className="text-sm text-white/65 md:text-base">{appBundle.note}</p>
-                <div className="flex items-baseline gap-3 pt-2">
+                <div className="flex flex-wrap items-baseline gap-2 pt-2 sm:gap-3">
                   <span className="text-sm text-white/40 line-through">{formatINR(appBundle.originalPrice)}</span>
-                  <span className="font-display text-4xl font-semibold">{formatINR(appBundle.price)}</span>
+                  <span className="font-display text-3xl font-semibold sm:text-4xl">{formatINR(appBundle.price)}</span>
                   <span className="text-sm text-white/60">/ year</span>
                 </div>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <Button to="/contact?plan=bundle" variant="light">
+                <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
+                  <Button to="/contact?plan=bundle" variant="light" className="w-full sm:w-auto">
                     {appBundle.cta}
                   </Button>
                   <Link
@@ -137,18 +137,18 @@ export function Pricing() {
       </section>
 
       <section className="border-t border-theme">
-        <div className="container-page flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
+        <div className="container-page flex flex-col items-stretch justify-between gap-6 py-14 sm:items-start md:flex-row md:items-center">
           <div className="max-w-lg space-y-2">
             <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">Not sure which plan fits?</h2>
             <p className="text-ink-muted">
               We’ll map the full feature list to your stores and riders — no card required.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Button to="/contact?demo=1" size="lg">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+            <Button to="/contact?demo=1" size="lg" className="w-full sm:w-auto">
               Book a demo
             </Button>
-            <Button to="/faq" variant="secondary" size="lg">
+            <Button to="/faq" variant="secondary" size="lg" className="w-full sm:w-auto">
               Read FAQs
             </Button>
           </div>
