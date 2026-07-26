@@ -84,12 +84,12 @@ export function PlanDetail() {
               </ul>
 
               <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-ink-subtle">
-                What’s included
+                Full list — what’s included ({plan.fullFeatures.length})
               </p>
-              <ul className="mt-4 space-y-3">
-                {plan.features.map((feature) => (
+              <ul className="mt-4 max-h-[28rem] space-y-3 overflow-y-auto pr-1">
+                {plan.fullFeatures.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5 text-sm text-ink-muted">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     {feature}
                   </li>
                 ))}

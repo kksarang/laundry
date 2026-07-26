@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PlanCompareTable } from '@/components/pricing/PlanCompareTable'
+import { PriceValueTable } from '@/components/pricing/PriceValueTable'
 import { PricingCards } from '@/components/pricing/PricingCards'
 import { Button } from '@/components/ui/Button'
 import { appBundle } from '@/data/appPlans'
@@ -23,6 +24,8 @@ export function AppPlans({ showComparison = false, showHeader = true }: AppPlans
           </p>
         </div>
       )}
+
+      <PriceValueTable />
 
       <PricingCards />
 

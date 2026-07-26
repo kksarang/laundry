@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-/** Display order matching reference: entry → mid → popular */
+/** Display order: entry → mid → popular */
 const orderedPlans = [...appPlans].sort((a, b) => a.price - b.price)
 
 export function PricingCards() {
@@ -18,7 +18,7 @@ export function PricingCards() {
           key={plan.id}
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ delay: index * 0.07, ease }}
           className={`relative flex flex-col rounded-[1.5rem] border bg-surface p-6 shadow-[0_12px_40px_rgba(12,50,46,0.06)] md:p-8 ${
             plan.popular
@@ -33,7 +33,7 @@ export function PricingCards() {
           )}
 
           <div
-            className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${plan.accent} shadow-sm`}
+            className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${plan.accent} shadow-sm`}
             aria-hidden
           >
             <span className="h-6 w-6 rounded-full bg-white/35 blur-[1px]" />
@@ -52,16 +52,19 @@ export function PricingCards() {
 
           <p className="mt-4 text-sm leading-relaxed text-ink-muted">{plan.description}</p>
 
-          <ul className="mt-6 flex-1 space-y-3">
-            {plan.features.map((feature) => (
+          <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
+            Everything included ({plan.fullFeatures.length})
+          </p>
+          <ul className="mt-3 max-h-[22rem] flex-1 space-y-2.5 overflow-y-auto pr-1">
+            {plan.fullFeatures.map((feature) => (
               <li key={feature} className="flex items-start gap-2.5 text-sm text-ink">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink" strokeWidth={2.25} />
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.25} />
                 {feature}
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 space-y-3">
+          <div className="mt-8 space-y-3 border-t border-theme pt-6">
             <Button
               to={`/contact?plan=${plan.id}`}
               variant={plan.popular ? 'primary' : 'secondary'}
@@ -73,7 +76,7 @@ export function PricingCards() {
               to={`/pricing/${plan.id}`}
               className="flex w-full items-center justify-center text-sm font-semibold text-primary hover:opacity-80"
             >
-              See plan details
+              Full plan explanation →
             </Link>
           </div>
         </motion.article>
