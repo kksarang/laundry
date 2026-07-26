@@ -29,9 +29,9 @@ export function BlogPost() {
 
       <article>
         <header className="hero-atmosphere border-b border-theme">
-          <div className="container-page section-pad max-w-3xl space-y-4">
+          <div className="container-page max-w-3xl space-y-4 pb-16 pt-28 md:pb-20 md:pt-32">
             <Badge>{post.category}</Badge>
-            <h1 className="font-display text-4xl font-semibold text-ink md:text-5xl">{post.title}</h1>
+            <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">{post.title}</h1>
             <p className="text-ink-muted">
               {post.author} · {formatDate(post.date)} · {post.readTime} read
             </p>

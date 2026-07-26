@@ -20,7 +20,7 @@ export function Navbar() {
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
+    const onScroll = () => setScrolled(window.scrollY > 16)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -34,12 +34,12 @@ export function Navbar() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 md:px-4 md:pt-4">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-4 md:pt-4">
       <div
         className={`mx-auto flex h-14 w-full max-w-[74rem] items-center justify-between gap-3 rounded-2xl border px-3 transition-all duration-300 sm:px-4 md:h-[3.85rem] ${
           scrolled
-            ? 'border-theme/80 bg-[color-mix(in_oklab,var(--surface)_88%,transparent)] shadow-[0_16px_40px_var(--shadow)] backdrop-blur-xl'
-            : 'border-theme/55 bg-[color-mix(in_oklab,var(--surface)_70%,transparent)] backdrop-blur-lg'
+            ? 'border-theme/80 bg-[color-mix(in_oklab,var(--surface)_92%,transparent)] shadow-[0_14px_36px_var(--shadow)] backdrop-blur-xl'
+            : 'border-theme/55 bg-[color-mix(in_oklab,var(--surface)_82%,transparent)] backdrop-blur-lg'
         }`}
       >
         <Logo compact />
@@ -54,9 +54,7 @@ export function Navbar() {
               to={link.to}
               className={({ isActive }) =>
                 `rounded-lg px-3 py-1.5 text-[13px] font-medium transition-all ${
-                  isActive
-                    ? 'bg-surface text-ink shadow-sm'
-                    : 'text-ink-muted hover:text-ink'
+                  isActive ? 'bg-surface text-ink shadow-sm' : 'text-ink-muted hover:text-ink'
                 }`
               }
             >
@@ -77,9 +75,9 @@ export function Navbar() {
 
           <NavLink
             to="/contact?demo=1"
-            className="hidden items-center rounded-xl border border-[color-mix(in_oklab,var(--primary)_28%,var(--border))] bg-[var(--primary-soft)] px-3.5 py-2 text-[13px] font-semibold text-primary transition-colors hover:bg-[color-mix(in_oklab,var(--primary-soft)_70%,var(--primary))] sm:inline-flex"
+            className="hidden items-center rounded-xl bg-[var(--primary)] px-3.5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] sm:inline-flex"
           >
-            Request demo
+            Book demo
           </NavLink>
 
           <button
@@ -103,7 +101,7 @@ export function Navbar() {
           >
             <button
               type="button"
-              className="absolute inset-0 bg-[var(--ink)]/40 backdrop-blur-[2px]"
+              className="absolute inset-0 bg-[var(--ink)]/45 backdrop-blur-[2px]"
               onClick={() => setOpen(false)}
             />
             <motion.aside
@@ -147,9 +145,9 @@ export function Navbar() {
                 <NavLink
                   to="/contact?demo=1"
                   onClick={() => setOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl border border-[color-mix(in_oklab,var(--primary)_28%,var(--border))] bg-[var(--primary-soft)] py-3 text-sm font-semibold text-primary"
+                  className="flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-3 text-sm font-semibold text-white"
                 >
-                  Request demo
+                  Book demo
                 </NavLink>
               </div>
             </motion.aside>

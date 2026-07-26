@@ -6,6 +6,7 @@ import { Blog } from '@/pages/Blog'
 import { BlogPost } from '@/pages/BlogPost'
 import { Contact } from '@/pages/Contact'
 import { FAQ } from '@/pages/FAQ'
+import { ForSegment } from '@/pages/ForSegment'
 import { Home } from '@/pages/Home'
 import { Pricing } from '@/pages/Pricing'
 import { Products } from '@/pages/Products'
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/services" element={<Navigate to="/products" replace />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/for/:segmentId" element={<ForSegment />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />

@@ -91,4 +91,53 @@ export const faqs: FaqItem[] = [
     answer:
       'Most standard Indian gateways and UPI flows can be connected. Share your preferred provider on the demo call.',
   },
+  {
+    id: 'b1',
+    category: 'Onboarding',
+    question: 'Do I need IT staff?',
+    answer:
+      'No dedicated IT team is required. Cleanso is cloud-hosted and we guide white-label setup, store configuration, and staff training during onboarding.',
+  },
+  {
+    id: 'b2',
+    category: 'Onboarding',
+    question: 'How long to go live?',
+    answer:
+      'Most partners go live in 1–3 weeks once branding assets, service catalog, and payment gateway details are ready. We stay hands-on through train-and-launch.',
+  },
+  {
+    id: 'b3',
+    category: 'Technical',
+    question: 'Which payment gateways are supported?',
+    answer:
+      'Razorpay, PayU, Cashfree, and other standard Indian gateways plus UPI flows are commonly integrated. Share your preferred provider on the demo call and we confirm fit.',
+  },
+  {
+    id: 'b4',
+    category: 'Product',
+    question: 'Can I manage multiple locations?',
+    answer:
+      'Yes. CMS + POS is built for multi-store operators — unified catalog and pricing, store-level staff roles, and HQ reporting across counters and cities.',
+  },
+  {
+    id: 'b5',
+    category: 'Technical',
+    question: 'Is my data secure / GDPR ready?',
+    answer:
+      'Core services run on cloud infrastructure with role-based access, encrypted transport, and data-handling practices aligned to GDPR readiness. We share architecture and access roles during onboarding.',
+  },
+  {
+    id: 'b6',
+    category: 'Pricing & Licensing',
+    question: 'Why flat yearly instead of per-order fees?',
+    answer:
+      'Flat yearly licensing keeps your margins predictable as volume grows — no per-transaction tax during peak seasons. Updates and support for the licensed year are included in the license.',
+  },
+  {
+    id: 'b7',
+    category: 'Product',
+    question: 'Do you support WhatsApp ordering?',
+    answer:
+      'Yes. Structured WhatsApp entry points can capture catalog, slots, and payment intent into real CMS orders — so chat demand does not stay trapped in message threads.',
+  },
 ]

@@ -91,6 +91,27 @@ export function Products() {
           ))}
         </div>
       </section>
+
+      <section className="border-t border-theme bg-surface section-pad">
+        <div className="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16">
+          <div className="max-w-xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">How to choose</p>
+            <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
+              Most brands start with Customer + CMS
+            </h2>
+            <p className="text-ink-muted md:text-lg">
+              Launch branded booking and a real control layer first. Add Delivery when rider density justifies a
+              dedicated fulfillment app — or take the full platform bundle from day one.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button to="/contact?demo=1">Request a product walkthrough</Button>
+            <Button to="/pricing" variant="secondary">
+              Compare yearly licenses
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
