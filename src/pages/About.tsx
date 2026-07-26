@@ -1,32 +1,35 @@
 import { Link } from 'react-router-dom'
+import { CustomizationSection } from '@/components/shared/CustomizationSection'
+import { GoogleReviews } from '@/components/shared/GoogleReviews'
 import { PageHeader } from '@/components/shared/PageHeader'
 import { SEO } from '@/components/shared/SEO'
 import { Button } from '@/components/ui/Button'
 import { launchSteps, platformStats, scalePillars } from '@/data/platform'
+import { aboutSeoParagraphs, teamHighlights, teamMembers } from '@/data/seoContent'
 
 const beliefs = [
   {
     title: 'Laundry is not generic retail',
-    copy: 'Slots, garment handling, rider handoffs, and plant status need product thinking — not a POS with laundry stickers.',
+    copy: 'Slots, garment handling, rider handoffs, and plant status need laundry management software — not a POS with laundry stickers.',
   },
   {
     title: 'Operators should own the customer',
-    copy: 'Your brand on the app. Your pricing. Your relationship. Software should be infrastructure, not a marketplace tax.',
+    copy: 'Your branded laundry app. Your pricing. Your relationship. White-label software should be infrastructure, not a marketplace tax.',
   },
   {
     title: 'Growth needs one operational truth',
-    copy: 'When counters, riders, and HQ disagree on an order, the brand looks unreliable. Connected systems fix that.',
+    copy: 'When counters, riders, and HQ disagree on an order, the brand looks unreliable. Connected dry cleaning software fixes that.',
   },
   {
-    title: 'Ambition deserves modular licensing',
-    copy: 'Start with what you need. Add Delivery or deepen CMS when density and cities demand it — without rebuilding.',
+    title: 'Customization without chaos',
+    copy: 'Every laundry brand is different. We customize branding, catalogs, and workflows — then keep yearly licensing simple.',
   },
 ]
 
 const timeline = [
   {
     title: 'Real apps, not pitch decks',
-    copy: 'Cleanso is packaged from production Customer, Partner, and CMS/POS applications already shaped by laundry workflows.',
+    copy: 'Cleanso is packaged from production Customer, Partner, and CMS/POS applications already shaped by laundry and dry-cleaning workflows.',
   },
   {
     title: 'Clear yearly licenses',
@@ -34,11 +37,11 @@ const timeline = [
   },
   {
     title: 'White-label by default',
-    copy: 'Customers and staff experience your laundry identity. We power the stack underneath with updates and launch support.',
+    copy: 'Customers and staff experience your laundry identity. We power the stack underneath with updates, customization, and launch support.',
   },
   {
-    title: 'Built to travel with you',
-    copy: 'Whether the next step is a second counter or a new city, the same operating system scales under your brand.',
+    title: 'A team obsessed with laundry ops',
+    copy: 'Product, onboarding, consulting, and support focus only on laundry software — so you talk to people who understand plants, riders, and counters.',
   },
 ]
 
@@ -46,13 +49,13 @@ export function About() {
   return (
     <>
       <SEO
-        title="About — Cleanso Software"
-        description="Cleanso builds white-label Customer, Delivery, and CMS + POS software for laundry brands that want to scale."
+        title="About Cleanso — Best Laundry Software Team | Custom White-Label Apps"
+        description="Meet the Cleanso team behind white-label laundry management software. Custom laundry apps, dry cleaning POS, Google-reviewed support for India, UAE, GCC, and global brands."
       />
       <PageHeader
-        eyebrow="About"
-        title="Software for laundry brands with a growth plan"
-        description="We don’t wash clothes. We build the operating system laundry operators use to take orders, run riders, manage stores, and expand with their brand intact."
+        eyebrow="About Cleanso"
+        title="The laundry software team behind white-label apps & POS"
+        description="We don’t wash clothes. We build and customize laundry management software — Customer App, Delivery App, and CMS + POS — so dry cleaning brands scale with their name intact."
       />
 
       <section className="section-pad">
@@ -62,18 +65,11 @@ export function About() {
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
               Born from real laundry applications
             </h2>
-            <p className="leading-relaxed text-ink-muted md:text-lg">
-              Cleanso packages a production-ready suite — customer booking, partner delivery with QR handoffs, and a
-              CMS/POS control layer — into clear yearly software licenses for laundry and dry-cleaning businesses.
-            </p>
-            <p className="leading-relaxed text-ink-muted md:text-lg">
-              Operators keep their brand. We provide the product, onboarding, and ongoing platform updates. That split is
-              intentional: you compete on service and trust; we compete on operational software quality.
-            </p>
-            <p className="leading-relaxed text-ink-muted md:text-lg">
-              The goal is simple — help ambitious laundry brands look and run like modern networks, whether they operate
-              in one city today or many markets tomorrow.
-            </p>
+            {aboutSeoParagraphs.map((para) => (
+              <p key={para.slice(0, 24)} className="leading-relaxed text-ink-muted md:text-lg">
+                {para}
+              </p>
+            ))}
           </div>
 
           <dl className="divide-y divide-[var(--border)] border-y border-theme">
@@ -87,12 +83,48 @@ export function About() {
         </div>
       </section>
 
+      {/* Best team */}
       <section className="border-y border-theme bg-surface section-pad">
+        <div className="container-page space-y-12">
+          <div className="max-w-2xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">Best team for laundry tech</p>
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+              Product, onboarding, and support built for laundry operators
+            </h2>
+            <p className="text-sm leading-relaxed text-ink-muted md:text-base">
+              Looking for the best team for laundry software customization and go-live? Cleanso specialists handle
+              white-label branding, catalog setup, staff training, and ongoing product support — so your laundry business
+              never talks to a generic IT helpdesk.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {teamMembers.map((member) => (
+              <article key={member.name} className="min-w-0 rounded-2xl border border-theme bg-page p-5">
+                <p className="font-display text-lg font-semibold text-ink">{member.name}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary">{member.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{member.focus}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 border-t border-theme pt-8 lg:grid-cols-4">
+            {teamHighlights.map((item) => (
+              <div key={item.label} className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink-subtle">{item.label}</p>
+                <p className="mt-2 font-display text-base font-semibold text-ink sm:text-lg">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad">
         <div className="container-page space-y-14">
           <div className="max-w-2xl space-y-5">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">What we believe</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Principles that shape the product
+              Principles that shape our laundry software
             </h2>
           </div>
 
@@ -106,6 +138,10 @@ export function About() {
           </div>
         </div>
       </section>
+
+      <CustomizationSection />
+
+      <GoogleReviews limit={3} />
 
       <section className="section-pad">
         <div className="container-page space-y-14">
@@ -140,8 +176,8 @@ export function About() {
               Infrastructure for brands that want more than a local shopfront
             </h2>
             <p className="text-ink-muted md:text-lg">
-              Cleanso is for operators planning serious growth — new counters, denser rider coverage, and expansion into
-              new neighborhoods and markets — without rebuilding software every time.
+              Cleanso multi-store and franchise laundry software helps operators add counters, denser rider coverage, and
+              new markets — without rebuilding custom software every time.
             </p>
           </div>
 
@@ -179,10 +215,12 @@ export function About() {
       <section className="border-t border-theme bg-[var(--ink)] text-[var(--bg)]">
         <div className="container-page py-20 md:py-24">
           <div className="max-w-2xl space-y-6">
-            <h2 className="font-display text-3xl font-semibold md:text-4xl">See the platform with your workflow in mind</h2>
+            <h2 className="font-display text-3xl font-semibold md:text-4xl">
+              Talk to the Cleanso laundry software team
+            </h2>
             <p className="text-base text-white/60 md:text-lg">
-              Book a demo and we’ll map Customer, Delivery, and CMS + POS to how you take orders today — and where you
-              want to be in the next year.
+              Book a demo for custom white-label setup, laundry POS configuration, or multi-store licensing — we’ll map
+              Customer, Delivery, and CMS + POS to your workflow.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button to="/contact?demo=1" variant="light">

@@ -24,12 +24,12 @@ export function ForSegment() {
   return (
     <>
       <SEO
-        title={`${segment.title} laundry software — Cleanso`}
-        description={`${segment.blurb} White-label Customer, Delivery, and CMS + POS with flat yearly licensing.`}
+        title={`${segment.title} Laundry Management Software | Cleanso`}
+        description={`${segment.blurb} Custom white-label laundry app, delivery app, and CMS + POS. Flat yearly laundry software licenses.`}
       />
       <PageHeader
-        eyebrow="Built for your business"
-        title={`${segment.title} laundry brands`}
+        eyebrow="Laundry software for your business"
+        title={`${segment.title} laundry management software`}
         description={segment.blurb}
         action={
           <div className="flex flex-wrap gap-3">

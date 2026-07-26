@@ -71,6 +71,34 @@ export const faqs: FaqItem[] = [
       'Common configuration is included. Larger custom modules can be scoped as paid enhancements after a discovery call.',
   },
   {
+    id: 'c3',
+    category: 'Customization',
+    question: 'What laundry software customization is included?',
+    answer:
+      'White-label branding (logo, colors, splash), service catalog and pricing setup, order statuses mapped to your plant workflow, staff roles, multi-store configuration, and payment gateway connection guidance are included in onboarding for active licenses.',
+  },
+  {
+    id: 'c4',
+    category: 'Customization',
+    question: 'Do you customize laundry POS and delivery workflows?',
+    answer:
+      'Yes. CMS + POS counters, receipts, inventory categories, and Delivery App rider zones / QR handoff flow can be configured to match how your dry cleaning or wash-and-fold business operates today.',
+  },
+  {
+    id: 'c5',
+    category: 'Support',
+    question: 'Is Cleanso a good team for laundry software support?',
+    answer:
+      'Our product, onboarding, and support teams specialize in laundry management software — not generic retail IT. Operators regularly highlight responsive go-live help and practical customization guidance in Google reviews.',
+  },
+  {
+    id: 'c6',
+    category: 'Product',
+    question: 'Is Cleanso laundry management software for India and UAE?',
+    answer:
+      'Yes. Cleanso white-label laundry apps and laundry POS are used by brands in India, UAE, GCC, and other markets. Payment and store listing steps are guided for each region during onboarding.',
+  },
+  {
     id: 's1',
     category: 'Support',
     question: 'What support is included?',

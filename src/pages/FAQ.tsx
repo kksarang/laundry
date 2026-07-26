@@ -36,8 +36,8 @@ export function FAQ() {
   return (
     <>
       <SEO
-        title="FAQ — Cleanso Software"
-        description="Answers about Cleanso products, licenses, onboarding, white-label customization, and support."
+        title="Laundry Software FAQ — Customization, Pricing, White-Label | Cleanso"
+        description="FAQ on laundry management software, white-label laundry apps, custom laundry software, dry cleaning POS, multi-store setup, pricing, and Cleanso team support."
       />
       <PageHeader
         eyebrow="FAQ"

@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
+import { keywordMeta } from '@/data/seoContent'
 
 interface SEOProps {
   title: string
   description: string
   image?: string
+  keywords?: string
 }
 
-export function SEO({ title, description, image }: SEOProps) {
+export function SEO({ title, description, image, keywords = keywordMeta }: SEOProps) {
   useEffect(() => {
     document.title = title
 
@@ -22,10 +24,13 @@ export function SEO({ title, description, image }: SEOProps) {
     }
 
     setMeta('description', description)
+    setMeta('keywords', keywords)
     setMeta('og:title', title, true)
     setMeta('og:description', description, true)
+    setMeta('twitter:title', title)
+    setMeta('twitter:description', description)
     if (image) setMeta('og:image', image, true)
-  }, [title, description, image])
+  }, [title, description, image, keywords])
 
   return null
 }

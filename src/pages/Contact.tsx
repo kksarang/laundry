@@ -69,13 +69,13 @@ export function Contact() {
   return (
     <>
       <SEO
-        title="Contact — Cleanso Software"
-        description="Request a demo or ask about Customer, Delivery, and CMS app licenses for your laundry business."
+        title="Contact Cleanso — Laundry Software Demo, Customization & Support"
+        description="Talk to the Cleanso laundry software team about white-label apps, custom laundry software, dry cleaning POS licensing, and Google-reviewed onboarding support."
       />
       <PageHeader
-        eyebrow="Contact"
-        title="Talk to us about Cleanso software"
-        description="Demos, licensing, white-label onboarding, and custom integrations — we usually respond within a few hours."
+        eyebrow="Contact the Cleanso team"
+        title="Demo, customization & laundry software licensing"
+        description="Book a demo for white-label laundry apps, laundry POS setup, multi-store configuration, or custom feature scoping — we usually respond within a few hours."
       />
 
       <section className="section-pad">

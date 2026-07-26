@@ -38,8 +38,8 @@ export function Footer() {
         <div className="space-y-4 sm:col-span-2 lg:col-span-1">
           <Logo compact />
           <p className="max-w-xs text-sm leading-relaxed text-ink-muted">
-            White-label laundry operating system — Customer App, Delivery App, and CMS + POS with flat yearly
-            licensing for brands scaling across cities and markets.
+            Laundry management software — white-label Customer App, laundry delivery app, and CMS + POS with
+            customization, Google-reviewed support, and flat yearly licensing for India, UAE, GCC, and global brands.
           </p>
           <div className="space-y-1 text-sm text-ink-muted">
             <a href="mailto:hello@cleanso.in" className="block hover:text-primary">

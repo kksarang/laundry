@@ -3,8 +3,11 @@ import { ArrowRight, Check, Clock3, Phone, Route, Shield, Sparkles, Users } from
 import { Link } from 'react-router-dom'
 import { AppPlans } from '@/components/pricing/AppPlans'
 import { AppShowcase } from '@/components/shared/AppShowcase'
+import { CustomizationSection } from '@/components/shared/CustomizationSection'
+import { GoogleReviews } from '@/components/shared/GoogleReviews'
 import { SEO } from '@/components/shared/SEO'
 import { Button } from '@/components/ui/Button'
+import { seoPillars, teamHighlights } from '@/data/seoContent'
 import { faqs } from '@/data/faqs'
 import {
   businessSegments,
@@ -34,8 +37,8 @@ export function Home() {
   return (
     <>
       <SEO
-        title="Cleanso — Premium Laundry Business Software"
-        description="Connected Customer App, Delivery App, and CMS + POS for laundry brands. White-label software from ₹5,000/year."
+        title="Cleanso — Laundry Management Software | White-Label Laundry App & POS"
+        description="Best laundry management software for dry cleaning brands: white-label laundry booking app, laundry delivery app, CMS + POS. Custom laundry software, Google-reviewed team, flat yearly licenses from ₹5,000."
       />
 
       {/* Classic hero — CMS mock + three app cards */}
@@ -64,9 +67,9 @@ export function Home() {
                 Three connected apps.
               </h1>
 
-              <p className="max-w-lg text-lg leading-relaxed text-ink-muted">
-                White-label Customer, Delivery, and CMS + POS software purpose-built for laundry & dry-cleaning
-                businesses — booking to billing in one stack.
+              <p className="max-w-lg text-base leading-relaxed text-ink-muted sm:text-lg">
+                White-label laundry management software for dry cleaning and wash-and-fold brands — customizable
+                Customer App, laundry delivery app, and CMS + POS from booking to billing under your brand.
               </p>
             </motion.div>
 
@@ -336,8 +339,42 @@ export function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      <CustomizationSection />
+
+      {/* Why Cleanso — SEO pillars */}
       <section className="border-y border-theme bg-surface section-pad">
+        <div className="container-page space-y-12">
+          <div className="max-w-2xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">
+              Laundry software platform
+            </p>
+            <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
+              Dry cleaning software, laundry POS, and white-label apps in one stack
+            </h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {seoPillars.map((pillar) => (
+              <article key={pillar.title} className="min-w-0">
+                <h3 className="font-display text-xl font-semibold text-ink">{pillar.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{pillar.copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-4 border-t border-theme pt-8 lg:grid-cols-4">
+            {teamHighlights.map((item) => (
+              <div key={item.label} className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink-subtle">{item.label}</p>
+                <p className="mt-2 font-display text-base font-semibold text-ink sm:text-lg">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GoogleReviews limit={6} />
+
+      {/* Testimonials */}
+      <section className="section-pad">
         <div className="container-page space-y-10">
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
             What laundry teams notice first

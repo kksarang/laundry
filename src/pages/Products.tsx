@@ -10,13 +10,13 @@ export function Products() {
   return (
     <>
       <SEO
-        title="Products — Cleanso Platform"
-        description="Customer App, Delivery App, CMS + POS, offers, and white-label branding for laundry businesses."
+        title="Laundry Software Products — Customer App, Delivery App, CMS + POS | Cleanso"
+        description="Explore Cleanso laundry management software: white-label laundry booking app, laundry delivery app, dry cleaning POS & CMS, offers, and full software customization."
       />
       <PageHeader
-        eyebrow="Products"
-        title="A connected suite for laundry brands"
-        description="Every product maps to real modules from the Cleanso customer, partner, and CRM/POS applications."
+        eyebrow="Laundry software products"
+        title="White-label laundry apps, delivery & POS"
+        description="Customer booking app, laundry delivery app, and CMS + POS — customizable laundry management software mapped from real dry-cleaning workflows."
         action={
           <Button to="/pricing" variant="secondary" className="!rounded-xl">
             See licenses

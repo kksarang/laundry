@@ -15,8 +15,8 @@ export function Pricing() {
   return (
     <>
       <SEO
-        title="Pricing — Cleanso Yearly Software Licenses"
-        description="CMS + POS ₹5,000/year · Delivery App ₹10,000/year · Customer App ₹20,000/year · Full platform bundle ₹30,000/year. Full feature lists and comparison."
+        title="Laundry Software Pricing — Yearly Licenses | Cleanso"
+        description="Laundry management software pricing: CMS + POS ₹5,000/year, Delivery App ₹10,000/year, Customer App ₹20,000/year, full white-label bundle ₹30,000/year. Customization included."
       />
 
       <section className="border-b border-theme">

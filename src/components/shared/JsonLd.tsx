@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { appBundle, appPlans } from '@/data/appPlans'
+import { googleReviewSummary, googleReviews, keywordMeta } from '@/data/seoContent'
 
 const SITE_URL = 'https://kksarang.github.io/laundry/'
 
@@ -12,19 +13,53 @@ const jsonLd = {
       name: 'Cleanso',
       url: SITE_URL,
       description:
-        'Premium white-label software for laundry and dry-cleaning businesses — Customer App, Delivery App, and CMS + POS.',
-      sameAs: [],
+        'White-label laundry management software company — custom laundry apps, laundry delivery software, and CMS + POS for dry cleaning brands in India, UAE, GCC, and worldwide.',
+      knowsAbout: keywordMeta.split(', '),
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: googleReviewSummary.rating,
+        reviewCount: googleReviewSummary.count,
+        bestRating: 5,
+        worstRating: 1,
+      },
     },
     {
       '@type': 'SoftwareApplication',
       '@id': `${SITE_URL}#software`,
-      name: 'Cleanso',
+      name: 'Cleanso Laundry Management Software',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',
       url: SITE_URL,
       description:
-        'Connected laundry operations platform with customer booking, rider fulfillment, and HQ CMS + POS under your brand.',
+        'Customizable white-label laundry software with Customer App, Delivery App, and CMS + POS. Laundry booking, rider fulfillment, laundry POS, and multi-store operations under your brand.',
+      featureList: [
+        'White-label laundry customer app',
+        'Laundry delivery / partner app',
+        'Laundry CMS + POS',
+        'Dry cleaning catalog & pricing',
+        'Multi-store and franchise configuration',
+        'Software customization and onboarding',
+      ],
       provider: { '@id': `${SITE_URL}#organization` },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: googleReviewSummary.rating,
+        reviewCount: googleReviewSummary.count,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      review: googleReviews.slice(0, 4).map((r) => ({
+        '@type': 'Review',
+        author: { '@type': 'Person', name: r.author },
+        datePublished: `${r.date}-01`,
+        reviewBody: r.quote,
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: r.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      })),
       offers: [
         ...appPlans.map((plan) => ({
           '@type': 'Offer',
@@ -47,11 +82,23 @@ const jsonLd = {
         },
       ],
     },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}#website`,
+      url: SITE_URL,
+      name: 'Cleanso — Laundry Management Software',
+      description:
+        'Laundry management software, white-label laundry app, dry cleaning POS, and custom laundry software licensing.',
+      publisher: { '@id': `${SITE_URL}#organization` },
+    },
   ],
 }
 
 export function JsonLd() {
   useEffect(() => {
+    const existing = document.getElementById('cleanso-jsonld')
+    if (existing) existing.remove()
+
     const script = document.createElement('script')
     script.type = 'application/ld+json'
     script.id = 'cleanso-jsonld'

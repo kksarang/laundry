@@ -26,13 +26,13 @@ export function Blog() {
   return (
     <>
       <SEO
-        title="Blog — Cleanso Software"
-        description="Product guides, licensing tips, and growth ideas for laundry businesses using Cleanso software."
+        title="Laundry Software Blog — Customization, POS & Growth | Cleanso"
+        description="Guides on laundry management software, white-label laundry apps, custom laundry software, dry cleaning POS, and multi-store growth for India, UAE & GCC."
       />
       <PageHeader
-        eyebrow="Blog"
-        title="Ideas for laundry brands going digital"
-        description="Short reads on apps, ops software, and white-label launches — written for owners and operators."
+        eyebrow="Laundry software blog"
+        title="Guides for laundry brands going digital"
+        description="Practical reads on laundry apps, POS, white-label customization, and software for dry cleaning operators."
       />
 
       <section className="section-pad">
