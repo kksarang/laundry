@@ -46,7 +46,7 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98] ${variants[variant]} ${sizes[size]} ${className}`
+  const classes = `inline-flex max-w-full items-center justify-center gap-2 rounded-xl text-center font-semibold transition-all duration-200 active:scale-[0.98] ${variants[variant]} ${sizes[size]} ${className}`
 
   if ('to' in props && props.to) {
     return (

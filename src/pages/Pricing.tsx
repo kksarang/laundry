@@ -45,10 +45,15 @@ export function Pricing() {
             ))}
           </div>
 
-          {/* Pay / get / advantage table */}
           <PriceValueTable />
 
-          <PricingCards />
+          <div className="space-y-4">
+            <div className="max-w-xl space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-subtle">Full feature lists</p>
+              <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">Every license, explained</h2>
+            </div>
+            <PricingCards />
+          </div>
 
           {/* Bundle with full list */}
           <motion.div
