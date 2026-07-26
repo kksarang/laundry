@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kksarang.github.io/laundry/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/pricing</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/pricing/cms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/pricing/delivery</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/pricing/customer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/pricing/bundle</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/for/single-store</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/for/multi-store</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/for/franchise</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/about</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/faq</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/why-laundry-businesses-need-apps</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/customer-vs-delivery-vs-cms</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/white-label-laundry-software</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/custom-laundry-software-checklist</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/best-laundry-pos-and-delivery-app</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/blog/laundry-software-india-uae</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://kksarang.github.io/laundry/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
