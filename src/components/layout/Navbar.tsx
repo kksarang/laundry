@@ -75,9 +75,9 @@ export function Navbar() {
 
           <NavLink
             to="/contact?demo=1"
-            className="hidden items-center rounded-xl bg-[var(--primary)] px-3.5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] sm:inline-flex"
+            className="hidden items-center rounded-xl border border-[color-mix(in_oklab,var(--primary)_28%,var(--border))] bg-[var(--primary-soft)] px-3.5 py-2 text-[13px] font-semibold text-primary transition-colors hover:bg-[color-mix(in_oklab,var(--primary-soft)_70%,var(--primary))] sm:inline-flex"
           >
-            Book demo
+            Request demo
           </NavLink>
 
           <button
@@ -145,9 +145,9 @@ export function Navbar() {
                 <NavLink
                   to="/contact?demo=1"
                   onClick={() => setOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-[var(--primary)] py-3 text-sm font-semibold text-white"
+                  className="flex w-full items-center justify-center rounded-xl border border-[color-mix(in_oklab,var(--primary)_28%,var(--border))] bg-[var(--primary-soft)] py-3 text-sm font-semibold text-primary"
                 >
-                  Book demo
+                  Request demo
                 </NavLink>
               </div>
             </motion.aside>
